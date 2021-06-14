@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9 text-center">
+          <h1>Prédire votre moyenne en mastères</h1>
+          <h2>Choisir le mastère qui correspond au mieux à votres compétences</h2>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Résultats</h2>
+          <p>Cette application permet de prédire vos moyennes générales en 1er, 2ème et 3ème semestre en Master en fonction de leurs résultats en licence. Votre moyennes en 4ème semestre correspond à votre note de PFE. Vous serez demandé de réaliser un projet de fin d'études et votre note dans ce projet doit être supérieure ou égale à 10. Notez bien que vous serez demandé d'obtenir au mois 10 dans les deux semestres de 2ème année master.</p>
+        </div>
+
+        <div class="row">
+		<!-- ============================DSSD ====================================   -->
+		<!-- ========================================================================   -->
+          <div class="col-lg-4 col-md-6" data-aos="zoom-im" data-aos-delay="100">
+            <div class="box">
+              <h3>Mastère professionnel en Data Science and Software Development</h3>
+              <h4><sup></sup>DSSD<span></span></h4><br>
+              <ul>
+				{% if prediction_M1_DSSD[0][0] == 1 %}
+					<li>Votre moyenne en 1er année: <code> Moins de 10</code></li>
+				{% elif prediction_M1_DSSD[0][1] == 1%}
+					<li>Votre moyenne en 1er année: <code> Entre 10 et 11</code></li>
+				{% elif prediction_M1_DSSD[0][2] == 1%}
+					<li>Votre moyenne en 1er année: <code> Entre 11 et 12</code></li>
+				{% elif prediction_M1_DSSD[0][3] == 1 %}
+					<li>Votre moyenne en 1er année: <code> Entre 12 et 13</code></li>
+				{% elif prediction_M1_DSSD[0][4] == 1%}
+					<li>Votre moyenne en 1er année: <code> Entre 13 et 14</code></li>
+				{% elif prediction_M1_DSSD[0][5] == 1 %}
+					<li>Votre moyenne en 1er année: <code> Entre 14 et 15</code></li>
+				{% elif prediction_M1_DSSD[0][6] == 1 %}
+					<li>Votre moyenne en 1er année: <code> Plus de 15</code></li>
+				{% else %}
+					<li>Votre moyenne en 1er année: <code> Entre 11 et 12</code></li>		
+				{% endif %}
+				{% if prediction_M2_DSSD[0][0] == 1 %}
+					<li>Votre moyenne en 3ème semestre: <code> Moins de 10</code></li>
+				{% elif prediction_M2_DSSD[0][1] == 1 %}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 10 et 11</code></li>
+				{% elif prediction_M2_DSSD[0][2] == 1%}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 11 et 12</code></li>
+				{% elif prediction_M2_DSSD[0][3] == 1 %}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 12 et 13</code></li>
+				{% elif prediction_M2_DSSD[0][4] == 1%}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 13 et 14</code></li>
+				{% elif prediction_M2_DSSD[0][5] == 1 %}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 14 et 15</code></li>
+				{% elif prediction_M2_DSSD[0][7] == 1 %}
+					<li>Votre moyenne en 3ème semestre: <code> Plus de 15</code></li>
+				{% else %}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 12 et 13</code></li>
+				{% endif %}
+				{% if DSSD_erreur == false %}
+					<br>
+					<br>
+					</ul>
+				{% else %}
+					<p class="text-danger">Le taux d'erreur est très</p>
+					<p class="text-danger">élevé dans votre cas</p>
+				
+
+              </ul>
+				<div class="btn-wrap">
+					<a href="#clients" class="btn-buy">Consulter les résultats</a>
+				</div>
+				{% endif %}
+            </div>
+          </div>
+		<!-- ============================ E_Business ====================================   -->
+		<!-- ========================================================================   -->
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="100">
+            <div class="box">
+              <h3>Mastère professionnel en E-Busines</h3><br>
+              <h4><sup></sup>E-Business<span></span></h4><br>
+              <ul>
+					{% if prediction_M1_E_Business[0][0] == 1 %}
+						<li>Votre moyenne en 1er année: <code> Moins de 9</code></li>
+					{% elif prediction_M1_E_Business[0][1] == 1%}
+						<li>Votre moyenne en 1er année: <code> Entre 9 et 10</code></li>
+					{% elif prediction_M1_E_Business[0][2] == 1 %}
+						<li>Votre moyenne en 1er année: <code> Entre 10 et 11</code></li>
+					{% elif prediction_M1_E_Business[0][3] == 1%}
+						<li>Votre moyenne en 1er année: <code> Entre 11 et 12</code></li>
+					{% elif prediction_M1_E_Business[0][4] == 1 %}
+						<li>Votre moyenne en 1er année: <code> Entre 12 et 13</code></li>
+					{% elif prediction_M1_E_Business[0][5] == 1%}
+						<li>Votre moyenne en 1er année: <code> Entre 13 et 14</code></li>
+					{% elif prediction_M1_E_Business[0][6] == 1%}
+						<li>Votre moyenne en 1er année: <code> Plus de 14</code></li>
+					{% else %}
+						<li>Votre moyenne en 1er année: <code> Entre 11 et 12</code></li>
+					{% endif %}
+
+					{% if prediction_M2_E_Business[0][0] == 1 %}
+						<li>Votre moyenne en 3ème semestre: <code> Moins de 10</code></li>
+					{% elif prediction_M2_E_Business[0][1] == 1%}
+						<li>Votre moyenne en 3ème semestre: <code> Entre 10 et 11</code></li>
+					{% elif prediction_M2_E_Business[0][2] == 1%}
+						<li>Votre moyenne en 3ème semestre: <code> Entre 11 et 12</code></li>
+					{% elif prediction_M2_E_Business[0][3] == 1 %}
+						<li>Votre moyenne en 3ème semestre: <code> Entre 12 et 13</code></li>
+					{% elif prediction_M2_E_Business[0][4] == 1%}
+						<li>Votre moyenne en 3ème semestre: <code> Entre 13 et 14</code></li>
+					{% elif prediction_M2_E_Business[0][5] == 1%}
+					    <li>Votre moyenne en 3ème semestre: <code> Entre 14 et 15</code></li>
+					{% elif prediction_M2_E_Business[0][6] == 1%}
+					    <li>Votre moyenne en 3ème semestre: <code> Plus de 15 </code></li>
+					{% else %}
+						<li>Votre moyenne en 3ème semestre: <code> Entre 12 et 13</code></li>
+					{% endif %}
+				{% if E_Business_erreur == false%}
+					<br>
+					<br>
+					</ul>
+				{% else %}
+					<p class="text-danger">Le taux d'erreur est très</p>
+					<p class="text-danger">élevé dans votre cas</p>
+				
+              </ul>
+              	<div class="btn-wrap">
+					<a href="#clients" class="btn-buy">Consulter les résultats</a>
+				</div>
+				{% endif %}
+              </div>
+            </div>
+		<!-- ============================ M_WI ======================================   -->
+		<!-- ========================================================================   -->
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="100">
+            <div class="box">
+              <h3>Mastère de recherche en Web Intelligence</h3><br>
+              <h4><sup></sup>WI<span></span></h4><br>
+              <ul>
+				{% if prediction_M1_WI[0][0] == 1 %}
+					<li>Votre moyenne en 1er année: <code> Entre 10 et 11</code></li>
+				{% elif prediction_M1_WI[0][1] == 1 %}
+					<li>Votre moyenne en 1er année: <code> Entre 10 et 11</code></li>
+				{% elif prediction_M1_WI[0][2] == 1%}
+					<li>Votre moyenne en 1er année: <code> Entre 11 et 12</code></li>
+				{% elif prediction_M1_WI[0][3] == 1 %}
+					<li>Votre moyenne en 1er année: <code> Entre 12 et 13</code></li>
+				{% elif prediction_M1_WI[0][4] == 1 %}
+				   <li>Votre moyenne en 1er année: <code> Entre 13 et 14</code></li>
+				{% elif prediction_M1_WI[0][5] == 1 %}
+					<li>Votre moyenne en 1er année: <code> Plus de 14</code></li>
+				{% else %}
+					<li>Votre moyenne en 1er année: <code> Entre 11 et 12</code></li>
+				{% endif %}
+
+				{% if prediction_M2_WI[0][0] == 1 %}
+					<li>Votre moyenne en 3ème semestre: <code> Moins de 10</code></li>
+				{% elif prediction_M2_WI[0][1] == 1%}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 10 et 11</code></li>
+				{% elif prediction_M2_WI[0][2] == 1 %}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 11 et 12</code></li>
+				{% elif prediction_M2_WI[0][3] == 1%}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 12 et 13</code></li>
+				{% elif prediction_M2_WI[0][4] == 1 %}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 13 et 14</code></li>
+				{% elif prediction_M2_WI[0][5] == 1 %}
+					<li>Votre moyenne en 3ème semestre: <code> Plus de 14</code></li>
+				{% else %}
+					<li>Votre moyenne en 3ème semestre: <code> Entre 12 et 13</code></li>
+				{% endif %}
+				{% if WI_erreur== false %}
+					<br>
+					<br> 
+					</ul>
+				{% else %}
+					<p class="text-danger">Le taux d'erreur est très</p>
+					<p class="text-danger">élevé dans votre cas</p>
+				
+              </ul>
+			    <div class="btn-wrap">
+					<a href="#clients" class="btn-buy">Consulter les résultats</a>
+				</div>
+				{% endif %}
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Pricing Section -->
+
+{% if erreur == true %}	
+	    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients section-bg">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+			<h1>Détails</h1>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+	
+
+
+ <section id="contact" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-9">
+            <div class="portfolio-info">
+              <h3>Les valeurs aberrantes</h3>            
+				<table class="table">
+				  <thead>
+					<tr>
+					  <th scope="col"></th>
+					  <th scope="col">Valeur</th>
+					  <th scope="col">DSSD</th>
+					  <th scope="col">E_Business</th>
+					  <th scope="col">WI</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+					  <th scope="row">Année de Bac </th>
+					  <td>{{final_features [9]}}</td>
+					  <td>{% if  -3 <= data_z_DSSD[0] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_E_Business[0] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_WI[0] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %}</td>
+					</tr>
+					<tr>
+					  <th scope="row">Moyenne de Bac</th>
+					  <td>{{final_features [10]}}</td>
+					  <td>{% if  -3 <= data_z_DSSD[1] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_E_Business[1] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_WI[1] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %}</td>
+					</tr>
+					<tr>
+					  <th scope="row">Année de licence</th>
+					  <td>{{final_features [11]}}</td>
+					  <td>{% if  -3 <= data_z_DSSD[2] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_E_Business[2] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_WI[2] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %}</td>
+					</tr>
+					<tr>
+					  <th scope="row">Moyenne des modules en informatique</th>
+					  <td>{{final_features [12]}}</td>
+					  <td>{% if  -3 <= data_z_DSSD[3] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_E_Business[3] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_WI[3] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %}</td>
+					</tr>
+					<tr>
+					  <th scope="row">Moyenne des modules en gestion</th>
+					  <td>{{final_features [13]}}</td>
+					  <td>{% if  -3 <= data_z_DSSD[4] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_E_Business[4] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_WI[4] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %}</td>
+					</tr>
+					<tr>
+					  <th scope="row">Moyenne des modules en mathématique</th>
+					  <td>{{final_features [14]}}</td>
+					  <td>{% if  -3 <= data_z_DSSD[5] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_E_Business[5] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_WI[5] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %}</td>
+					</tr>
+					<tr>
+					  <th scope="row">Moyenne des modules en langues et étiques de l'information</th>
+					  <td>{{final_features [15]}}</td>
+					  <td>{% if  -3 <= data_z_DSSD[6] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_E_Business[6] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_WI[6] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %}</td>
+					</tr>
+					<tr>
+					  <th scope="row">Moyenne de 1re année licence</th>
+					  <td>{{final_features [16]}}</td>
+					  <td>{% if  -3 <= data_z_DSSD[7] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_E_Business[7] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_WI[7] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %}</td>
+					</tr>
+					<tr>
+					  <th scope="row">Moyenne de 2ème année licence</th>
+					  <td>{{final_features [17]}}</td>
+					  <td>{% if  -3 <= data_z_DSSD[8] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_E_Business[8] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_WI[8] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %}</td>
+					</tr>
+					<tr>
+					  <th scope="row">Moyenne de 3ème année licence</th>
+					  <td>{{final_features [18]}}</td>
+					  <td>{% if  -3 <= data_z_DSSD[9] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_E_Business[9] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %} </td>
+					  <td>{% if  -3 <= data_z_WI[9] <= 3  %}<i class="bi bi-check-lg"></i>{% else%} <code> <i class="bi bi-x-lg"></i> </code>{% endif %}</td>
+					</tr>
+				  </tbody>
+				</table>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="portfolio-description">
+              <h2>Les valeurs aberrantes</h2>
+              <p>
+                Les valeurs aberrantes sont des valeurs inhabituelles détectées par le système. Si vous avez entré des valeurs incorrectes vous devez les corriger pour minimiser le taux d'erreur dans votre cas.
+              </p>
+            </div>
+          </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+{% endif %}
+  </main>
+
+{% endblock %}
