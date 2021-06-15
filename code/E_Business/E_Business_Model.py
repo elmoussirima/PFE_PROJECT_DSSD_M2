@@ -34,6 +34,7 @@ y = Master_Moy_M1
 
 # Modélisation des données
 knn = KNeighborsClassifier(n_neighbors = 89, weights='distance')
+
 # train
 knn.fit(X, y)
 # predict

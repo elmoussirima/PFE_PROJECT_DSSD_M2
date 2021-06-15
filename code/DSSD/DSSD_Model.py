@@ -59,7 +59,6 @@ y = Master_Moy_M2
 
 # Modélisation des données
 knn = KNeighborsClassifier(n_neighbors = 69, weights='uniform')
-
 # train
 knn.fit(X, y)
 # predict
